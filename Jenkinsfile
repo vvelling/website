@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh '''
                    sudo su
-                   sudo docker run -p 82:80 assignment:v1
+                   sudo docker run -p 82:80 assignment:v1 &
 		'''
             }
         }
