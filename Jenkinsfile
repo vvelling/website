@@ -14,7 +14,29 @@ pipeline {
             steps {
                 sh '''
                    sudo su
-                   sudo docker run -p 82:80 assignment:v1 &
+                   var='sudo docker ps'
+                   if $var | grep cs1
+                   then
+                       echo "Found a container name 'cs1' running ! removing that container cs1"
+                       sudo docker kill cs1
+                       sudo docker rm cs1
+                   else
+                       echo "no running container in the name 'cs1' "
+                  fi
+
+                  sudo docker run -p 82:80 assignment:v1 &
+                  sleep 10
+
+                  if $var | grep cs1
+                  then
+                      echo "container running fine"
+                      $var
+                      exit 0
+                  else
+                      echo "container not running"
+                      exit 1
+                  fi
+
 		'''
             }
         }
