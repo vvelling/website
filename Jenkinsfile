@@ -5,8 +5,7 @@ pipeline {
             steps {
                 sh '''
                    sudo su
-                   whoami
-                   docker build -t assignment:v1 .
+                   sudo docker build -t assignment:v1 .
 		'''
             }
         }
@@ -15,7 +14,7 @@ pipeline {
             steps {
                 sh '''
                    sudo su
-                   docker run -p 82:80 assignment:v1
+                   sudo docker run -p 82:80 assignment:v1
 		'''
             }
         }
