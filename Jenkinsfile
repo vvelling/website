@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh '''
                    sudo su
+                   echo whoami
                    docker build -t assignment:v1 .
 		'''
             }
