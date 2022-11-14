@@ -24,7 +24,7 @@ pipeline {
                        echo "no running container in the name 'cs1' "
                   fi
 
-                  sudo docker run -p 82:80 assignment:v1 &
+                  sudo docker run --name cs1 -p 82:80 assignment:v1 &
                   sleep 10
 
                   if $var | grep cs1
